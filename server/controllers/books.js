@@ -34,7 +34,7 @@ export function processAddPage(req, res, next) {
             console.error(err);
             res.end(err);
         };
-        res.redirect('/movie/list')
+        res.redirect('/books/list')
     })
 
 }
