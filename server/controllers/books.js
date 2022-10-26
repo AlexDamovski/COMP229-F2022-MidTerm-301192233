@@ -41,11 +41,16 @@ export function processAddPage(req, res, next) {
 
 // GET the Book Details page in order to edit an existing Book
 export function displayEditPage(req, res, next) {
+    let id = req.params.id;
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
+    booksModel.findById(id, (err, book) =>{
+        if(err){
+            console.error(err);
+            res.end(err);
+        }
+        res.render('index', {title: 'Edit Book', page: 'books/edit', book: book})
+    })
+    
 }
 
 // POST - process the information passed from the details form and update the document
