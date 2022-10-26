@@ -25,7 +25,7 @@ mongoose.connect(MongoURI);
 const db = mongoose.connection;
 
 // Listen for Connections or Errors
-db.on('open', () => console.log(`Connected to MongoDB at Localhost`));
+db.on('open', () => console.log(`Connected to MongoDB`));
 db.on('error', () => console.error('Connection Error'));
 
 // view engine setup

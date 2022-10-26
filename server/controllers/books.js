@@ -16,17 +16,27 @@ export function displayBookList(req, res, next) {
 //  GET the Book Details page in order to add a new Book
 export function displayAddPage(req, res, next) {
 
-    /*****************
-    * ADD CODE HERE *
-    *****************/
+    res.render('index', {name: 'Add title of book', page: 'books/add', book: {}})
 }
 
 // POST process the Book Details page and create a new Book - CREATE
 export function processAddPage(req, res, next) {
+    let newBook = booksModel({
+        name: req.body.name,
+        author: req.body.author,
+        published: req.body.published,
+        description: req.body.description,
+        price: req.body.price
+    });
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+    booksModel.create(newBook, (err, Book)=>{
+        if(err){
+            console.error(err);
+            res.end(err);
+        };
+        res.redirect('/movie-list')
+    })
+
 }
 
 // GET the Book Details page in order to edit an existing Book
