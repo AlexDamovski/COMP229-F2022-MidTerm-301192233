@@ -16,7 +16,7 @@ export function displayBookList(req, res, next) {
 //  GET the Book Details page in order to add a new Book
 export function displayAddPage(req, res, next) {
 
-    res.render('index', {name: 'Add title of book', page: 'books/add', book: {}})
+    res.render('index', {title: "Add book", name: 'Add title of book', page: 'books/add', book: {}})
 }
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -34,7 +34,7 @@ export function processAddPage(req, res, next) {
             console.error(err);
             res.end(err);
         };
-        res.redirect('/movie-list')
+        res.redirect('/movie/list')
     })
 
 }
