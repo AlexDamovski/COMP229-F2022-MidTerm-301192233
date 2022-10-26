@@ -77,7 +77,14 @@ export function processEditPage(req, res, next) {
 
 // GET - process the delete by user id
 export function processDelete(req, res, next) {
-    /*****************
-  * ADD CODE HERE *
-  *****************/
+   let id = req.params.id;
+
+   booksModel.remove({_id: id}, (err) =>{
+    if (err){
+        console.error(err);
+        res.end(err);
+    }
+
+    res.redirect('/books/list');
+   })
 }
